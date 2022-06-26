@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>618079921623-la3qua0cl4o1g7kfd6j22evlptsnk5bp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.618079921623-la3qua0cl4o1g7kfd6j22evlptsnk5bp</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>618079921623-iat2r3o0rbpbffsj80l4ih60fvvgihk1.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCO-9Y9vL1U4sgVdTZOz3Eo_hKHEj7cJsk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>618079921623</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.eduFlex</string>
+	<key>PROJECT_ID</key>
+	<string>eduflex-84c58</string>
+	<key>STORAGE_BUCKET</key>
+	<string>eduflex-84c58.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:618079921623:ios:20096237727900e54f9792</string>
+</dict>
+</plist>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "618079921623",
+    "project_id": "eduflex-84c58",
+    "storage_bucket": "eduflex-84c58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618079921623:android:02e382f078230dec4f9792",
+        "android_client_info": {
+          "package_name": "com.example.edu_flex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618079921623-iat2r3o0rbpbffsj80l4ih60fvvgihk1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.edu_flex",
+            "certificate_hash": "2aac9a1ef8eb1c20b01103548704c0f039c89283"
+          }
+        },
+        {
+          "client_id": "618079921623-t51864tkhig4g7que4iu5thjc98kso6v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGSZbShcjXPyRhJgQ9iLZ_VnJ4eWjGn6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618079921623-t51864tkhig4g7que4iu5thjc98kso6v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
