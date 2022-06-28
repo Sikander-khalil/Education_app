@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edu_flex/chtha2/pages/home_page.dart';
+import 'package:edu_flex/Dashboard2.dart';
+import 'package:edu_flex/chtha2/pages/StudentsHome.dart';
+
 
 
 
@@ -14,18 +16,18 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../chat1/Widgets/ProgressWidget.dart';
-import '../../screens/HomeScreen.dart';
 
 
 
 
-class LoginPage extends StatefulWidget {
-  LoginPage({Key key}) : super(key: key);
+
+class Studentslogin extends StatefulWidget {
+  Studentslogin({Key key}) : super(key: key);
   @override
-  LoginPageState createState() => LoginPageState();
+  StudentsloginState createState() => StudentsloginState();
 }
 
-class LoginPageState extends State<LoginPage> {
+class StudentsloginState extends State<Studentslogin> {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   SharedPreferences preferences;
@@ -48,7 +50,7 @@ class LoginPageState extends State<LoginPage> {
     isLoggedIn = await googleSignIn.isSignedIn();
 
     if(isLoggedIn){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => StudentsHome()));
     }
     this.setState(() {
       isLoading = false;
@@ -65,7 +67,7 @@ class LoginPageState extends State<LoginPage> {
         leading: new IconButton(onPressed:(){
 
           Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => HomeScreen()));
+              MaterialPageRoute(builder: (context) => Dasboard2()));
 
         }, icon: new Icon(Icons.arrow_back_ios,color: Colors.red,)),
       ),
@@ -167,7 +169,7 @@ class LoginPageState extends State<LoginPage> {
       this.setState(() {
         isLoading = false;
       });
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => StudentsHome()));
     }
 // Signin Failed
     else{

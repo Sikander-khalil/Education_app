@@ -77,7 +77,7 @@ class addnote extends StatelessWidget {
                   child: TextField(
                     controller: name,
                     decoration: InputDecoration(
-                      hintText: 'Name',
+                      hintText: 'Roll no',
                     ),
                   ),
                 ),
@@ -100,7 +100,7 @@ class addnote extends StatelessWidget {
                     maxLines: null,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      hintText: 'Enter the subjects Marks',
+                      hintText: 'Maths',
                     ),
                   ),
                 ),
@@ -123,7 +123,7 @@ class addnote extends StatelessWidget {
                     maxLines: null,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      hintText: 'Enter the second subjects marks',
+                      hintText: 'Science',
                     ),
                   ),
                 ),
@@ -146,7 +146,7 @@ class addnote extends StatelessWidget {
                     maxLines: null,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      hintText: 'Enter the third Subjects',
+                      hintText: 'History',
                     ),
                   ),
                 ),

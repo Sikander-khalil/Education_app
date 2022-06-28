@@ -16,6 +16,7 @@ import 'package:edu_flex/chat/chathome.dart';
 import 'package:edu_flex/joinroom.dart';
 import 'package:edu_flex/pages/edit_profile.dart';
 import 'package:edu_flex/pages/settings.dart';
+import 'package:edu_flex/screens/attedance_home.dart';
 
 
 
@@ -34,6 +35,7 @@ import 'package:image_picker/image_picker.dart';
 
 
 
+import '../chtha2/pages/login_page.dart';
 import '../dash.dart';
 import '../db/attdenace/homepage.dart';
 import '../models/user_model.dart';
@@ -62,9 +64,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey<ScaffoldState> _drawerscaffoldkey = new GlobalKey<ScaffoldState>();
-  User user = FirebaseAuth.instance.currentUser;
-  UserModel loggedInUser = UserModel();
+
+
   final picker = ImagePicker();
   File _image;
   Color image = Color(0xff125589);
@@ -166,6 +167,13 @@ backgroundColor: Colors.green,
               },
             ),
             SizedBox(height: 20,),
+            ListTile(
+              leading: Icon(Icons.phone), title: Text("SMS throgh phone",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25)),
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => AlertSms()));
+              },
+            ),
 
           ],
         ),
@@ -238,14 +246,7 @@ Container(
                           },
                         ),
 
-                      /*  RowReusableCardButton(
-                          tileColor: null,
-                          icon: Icons.timer_rounded,
-                          label: string.timetable,
-                          onPressed: () {
-                            kopenPage(context, UploadImage());
-                          },
-                        ),*/
+
                         InkWell(
                           child: Card(
                             child: Column(
@@ -259,7 +260,7 @@ Container(
                           ),
                           onTap: (){
                             Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(builder: (context) => StudentHomepage3()));
+                                MaterialPageRoute(builder: (context) => Attendancepage()));
                           },
                         ),
                         InkWell(
@@ -303,15 +304,15 @@ Container(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Image.asset('assets/phone.png',height: 120),
-                                Text('SMS Throgh Phone',style: TextStyle(fontWeight: FontWeight.bold),),
+                                Image.asset('assets/whatsapp.png',height: 120),
+                                Text('Chat App',style: TextStyle(fontWeight: FontWeight.bold),),
                               ],
                             ),
                           ),
                           onTap: (){
 
                             Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(builder: (context) => AlertSms()));
+                                MaterialPageRoute(builder: (context) => LoginPage()));
 
                           },
                         ),

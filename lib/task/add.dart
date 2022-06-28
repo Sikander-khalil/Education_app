@@ -42,8 +42,8 @@ class _AddScreenState extends State<AddScreen> {
                   return null;
                 },
                 decoration: const InputDecoration(
-                  hintText: 'Title',
-                  hintStyle: TextStyle(fontSize: 40)
+                  hintText: 'Subjects',
+                  hintStyle: TextStyle(fontSize: 20)
                 ),
                 onChanged: (value) {
                   setState(() {
@@ -60,8 +60,8 @@ class _AddScreenState extends State<AddScreen> {
                   return null;
                 },
                 decoration: const InputDecoration(
-                  hintText: 'Description',
-                    hintStyle: TextStyle(fontSize: 40)
+                  hintText: 'Time',
+                    hintStyle: TextStyle(fontSize: 20)
                 ),
                 onChanged: (value) {
                   setState(() {

@@ -1,11 +1,13 @@
 
+import 'package:edu_flex/screens/addstudentpage5.dart';
 import 'package:edu_flex/screens/attedance_home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../screens/HomeScreen.dart';
-import 'addstudentpage3.dart';
-import 'liststudent.dart';
+import 'addstudentpage4.dart';
+import 'liststudentpage4.dart';
+import 'liststudentpage5.dart';
 
 
 
@@ -13,14 +15,15 @@ import 'liststudent.dart';
 
 
 
-class StudentHomepage3 extends StatefulWidget {
-  const StudentHomepage3({Key key}) : super(key: key);
+
+class HistoryAttendance extends StatefulWidget {
+  const HistoryAttendance({Key key}) : super(key: key);
 
   @override
-  State<StudentHomepage3> createState() => _StudentHomepage3State();
+  State<HistoryAttendance> createState() => _HistoryAttendanceState();
 }
 
-class _StudentHomepage3State extends State<StudentHomepage3> {
+class _HistoryAttendanceState extends State<HistoryAttendance> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +40,7 @@ class _StudentHomepage3State extends State<StudentHomepage3> {
           children: [
             Text('Students list'),
             ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> AddStudentPage3()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> AddStudentPage5()));
 
 
             }, child: Text('Add',style: TextStyle(fontSize: 20),),
@@ -47,7 +50,7 @@ class _StudentHomepage3State extends State<StudentHomepage3> {
           ],
         ),
       ),
-      body: ListStudentPage3(),
+      body: ListStudentPage5(),
     );
   }
 }

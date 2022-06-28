@@ -4,6 +4,7 @@ import 'dart:ui';
 
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:edu_flex/chtha2/pages/login_page.dart';
 
 
 import 'package:edu_flex/dash.dart';
@@ -37,6 +38,8 @@ import 'EditProfilePage2.dart';
 import 'Home5.dart';
 import 'SettingsPage2.dart';
 
+import 'Widget/studentattendancehome.dart';
+import 'chtha2/pages/student_login.dart';
 import 'db/attdenace/students_attendance/studenthome_page.dart';
 
 
@@ -51,9 +54,7 @@ class Dasboard2 extends StatefulWidget {
 }
 
 class _Dasboard2State extends State<Dasboard2> {
-  final GlobalKey<ScaffoldState> _drawerscaffoldkey = new GlobalKey<ScaffoldState>();
-  User user = FirebaseAuth.instance.currentUser;
-  UserModel loggedInUser = UserModel();
+
   final picker = ImagePicker();
   File _image;
   Color image = Color(0xff125589);
@@ -70,17 +71,7 @@ class _Dasboard2State extends State<Dasboard2> {
       }
     });
   }
-  void initState() {
-    super.initState();
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(user.uid)
-        .get()
-        .then((value) {
-      this.loggedInUser = UserModel.fromMap(value.data());
 
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -163,6 +154,14 @@ class _Dasboard2State extends State<Dasboard2> {
               onTap: () {
                 Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (context) => RegistrationScreen()));
+              },
+            ),
+            SizedBox(height: 20,),
+            ListTile(
+              leading: Icon(Icons.message), title: Text("Chat app",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25)),
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => Studentslogin()));
               },
             ),
             SizedBox(height: 20,),
@@ -257,7 +256,7 @@ class _Dasboard2State extends State<Dasboard2> {
                           onTap: (){
                            setState(() {
                              Navigator.of(context).pushReplacement(
-                                 MaterialPageRoute(builder: (context) => StudentHomepage2()));
+                                 MaterialPageRoute(builder: (context) => Studentattendancehome()));
                            });
                           },
                         ),
