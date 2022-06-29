@@ -96,6 +96,7 @@ class _ReportScreen1State extends State<ReportScreen1> {
                                 fontSize: 20,
                               ),
                             ),
+                            subtitle: Text("\nTotal marks  ${snapshot.data.docChanges[index].doc['totalmarks']}",style: TextStyle(color: Colors.white),),
                             contentPadding: EdgeInsets.symmetric(
                               vertical: 12,
                               horizontal: 16,

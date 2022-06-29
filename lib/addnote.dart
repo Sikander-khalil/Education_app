@@ -10,6 +10,7 @@ class addnote extends StatelessWidget {
   TextEditingController subject1 = TextEditingController();
   TextEditingController subject2 = TextEditingController();
   TextEditingController subject3 = TextEditingController();
+  TextEditingController totalmarks = TextEditingController();
 
   CollectionReference ref = FirebaseFirestore.instance.collection('report');
 
@@ -42,7 +43,8 @@ class addnote extends StatelessWidget {
                 'name': name.text,
                 'Maths': subject1.text,
                 'Science': subject2.text,
-                'History': subject3.text
+                'History': subject3.text,
+                'totalmarks' : totalmarks.text
               }).whenComplete(() {
                 Navigator.pushReplacement(
                     context, MaterialPageRoute(builder: (_) => ReportScreen()));
@@ -129,7 +131,7 @@ class addnote extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 90,
+                height: 50,
               ),
               Container(
                 decoration: BoxDecoration(
@@ -147,6 +149,30 @@ class addnote extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: 'History',
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        color:Colors.grey,
+                        width: 4.0
+                    ),
+                    borderRadius: BorderRadius.circular(12)
+                ),
+
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: TextField(
+                    controller: totalmarks,
+                    maxLines: null,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintText: 'Total marks',
                     ),
                   ),
                 ),

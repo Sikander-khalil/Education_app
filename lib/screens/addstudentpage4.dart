@@ -14,31 +14,31 @@ class _AddStudentPage4State extends State<AddStudentPage4> {
   var name2='';
   var email2='';
   var rollno2= '';
-  var password2='';
+
   final name2Controller = TextEditingController();
   final name3Controller = TextEditingController();
   final email2Controller = TextEditingController();
-  final pass2Controller = TextEditingController();
+
   @override
   void dispose() {
     // TODO: implement dispose
     name2Controller.dispose();
     email2Controller.dispose();
     name3Controller.dispose();
-    pass2Controller.dispose();
+
     super.dispose();
   }
   clearText(){
     name2Controller.clear();
     email2Controller.clear();
     name3Controller.clear();
-    pass2Controller.clear();
+
   }
   //Add Students
   CollectionReference students2= FirebaseFirestore.instance.collection('students1');
   Future<void> addUser(){
     return students2.add({
-      'name2': name2, 'name3' : rollno2, 'password2' : password2
+      'name2': name2, 'name3' : rollno2,
     }).then((value) => print("User Add")).catchError((error){
       print('Failed to add user: $error');
     });
@@ -71,12 +71,13 @@ class _AddStudentPage4State extends State<AddStudentPage4> {
                   controller: name3Controller,
                   validator: (value){
                     if(value == null || value.isEmpty){
-                      return 'Please Enter roll no';
+                      return 'Please Enter rollno';
                     }
                     return null;
                   },
                 ),
               ),
+              SizedBox(height: 20,),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10.0),
                 child: TextFormField(
@@ -90,33 +91,13 @@ class _AddStudentPage4State extends State<AddStudentPage4> {
                   controller: name2Controller,
                   validator: (value){
                     if(value == null || value.isEmpty){
-                      return 'Please Enter name';
+                      return 'Please Enter attendance';
                     }
                     return null;
                   },
                 ),
               ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-
-                    labelStyle: TextStyle(fontSize: 20),
-                    border: OutlineInputBorder(),
-                    errorStyle: TextStyle(color: Colors.red,fontSize: 14),
-                  ),
-                  controller: pass2Controller,
-                  validator: (value){
-                    if(value == null || value.isEmpty){
-                      return 'Please Enter password';
-                    }
-                    return null;
-                  },
-                ),
-              ),
+SizedBox(height: 30,),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -127,7 +108,7 @@ class _AddStudentPage4State extends State<AddStudentPage4> {
                           name2 = name2Controller.text;
                           email2 = email2Controller.text;
                           rollno2 =name3Controller.text;
-                          password2 = pass2Controller.text;
+
                           addUser();
                           clearText();
                         });

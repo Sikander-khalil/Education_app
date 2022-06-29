@@ -13,9 +13,9 @@ class UpdateStudentPage3 extends StatefulWidget {
 class _UpdateStudentPage3State extends State<UpdateStudentPage3> {
   CollectionReference students= FirebaseFirestore.instance.collection('students');
   final _formkey= GlobalKey<FormState>();
-  Future<void> updateUser(id,name,rollno,password){
+  Future<void> updateUser(id,name,rollno){
     return students.doc(id).update({
-      'name': name, 'name1' : rollno, 'password' : password
+      'name': name, 'name1' : rollno,
     }).then((value) => print("User Update")).catchError((error){
       print('Failed to Update user: $error');
     });
@@ -43,7 +43,7 @@ class _UpdateStudentPage3State extends State<UpdateStudentPage3> {
               var data =snapshot.data.data();
               var name = data['name'];
               var rollno = data['name1'];
-              var password = data['password'];
+
               return Padding(
                 padding: EdgeInsets.symmetric(vertical: 20,horizontal: 30),
                 child: ListView(
@@ -68,6 +68,7 @@ class _UpdateStudentPage3State extends State<UpdateStudentPage3> {
                         },
                       ),
                     ),
+                    SizedBox(height: 20,),
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 10),
                       child: TextFormField(
@@ -88,34 +89,14 @@ class _UpdateStudentPage3State extends State<UpdateStudentPage3> {
                         },
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      child: TextFormField(
-                        initialValue: password,
-                        autofocus: false,
-                        obscureText: true,
-                        onChanged: (value)=> password = value,
-                        decoration: InputDecoration(
-                            labelText: 'Password',
-                            labelStyle: TextStyle(fontSize: 20),
-                            border: OutlineInputBorder(),
-                            errorStyle: TextStyle(color: Colors.redAccent,fontSize: 15)
-                        ),
-                        validator: (value){
-                          if(value == null || value.isEmpty){
-                            return 'Please enter Password';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
+SizedBox(height: 30,),
                     Container(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           ElevatedButton(onPressed: (){
                             if(_formkey.currentState.validate())  {
-                              updateUser(widget.id,name,rollno,password);
+                              updateUser(widget.id,name,rollno);
                               Navigator.pop(context);
                             }
 

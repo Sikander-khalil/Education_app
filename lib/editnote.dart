@@ -22,6 +22,7 @@ class _editnoteState extends State<editnote> {
   TextEditingController subject1 = TextEditingController();
   TextEditingController subject2 = TextEditingController();
   TextEditingController subject3 = TextEditingController();
+  TextEditingController totalmarks = TextEditingController();
 
   @override
   void initState() {
@@ -29,6 +30,7 @@ class _editnoteState extends State<editnote> {
     subject1 = TextEditingController(text: widget.docid.get('Maths'));
     subject2 = TextEditingController(text: widget.docid.get('Science'));
     subject3 = TextEditingController(text: widget.docid.get('History'));
+    totalmarks = TextEditingController(text: widget.docid.get('totalmarks'));
 
     super.initState();
   }
@@ -62,7 +64,8 @@ class _editnoteState extends State<editnote> {
                 'name': name.text,
                 'Maths': subject1.text,
                 'Science': subject2.text,
-                'History': subject3.text
+                'History': subject3.text,
+                'totalmarks': totalmarks.text
               }).whenComplete(() {
                 Navigator.pushReplacement(
                     context, MaterialPageRoute(builder: (_) => ReportScreen()));
@@ -177,7 +180,7 @@ class _editnoteState extends State<editnote> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 30,
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -203,7 +206,33 @@ class _editnoteState extends State<editnote> {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color:Colors.grey,
+                          width: 5.0
+                      ),
+                      borderRadius: BorderRadius.circular(19)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: totalmarks,
+                      maxLines: null,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        hintText: 'totalmarks',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
               ),
               MaterialButton(
                 color: const Color.fromARGB(255, 0, 11, 133),

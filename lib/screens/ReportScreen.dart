@@ -14,6 +14,7 @@ class ReportScreen extends StatefulWidget {
   State<ReportScreen> createState() => _ReportScreenState();
 }
 
+
 class _ReportScreenState extends State<ReportScreen> {
   final Stream<QuerySnapshot> _usersStream =
   FirebaseFirestore.instance.collection('report').snapshots();
@@ -95,6 +96,8 @@ class _ReportScreenState extends State<ReportScreen> {
                                 fontSize: 20,
                               ),
                             ),
+
+                            subtitle: Text("\nTotal marks  ${snapshot.data.docChanges[index].doc['totalmarks']}",style: TextStyle(color: Colors.white),),
                             contentPadding: EdgeInsets.symmetric(
                               vertical: 12,
                               horizontal: 16,

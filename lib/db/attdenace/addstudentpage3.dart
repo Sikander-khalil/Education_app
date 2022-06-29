@@ -14,31 +14,31 @@ class _AddStudentPage3State extends State<AddStudentPage3> {
   var name='';
   var email='';
   var rollno= '';
-  var password='';
+
   final nameController = TextEditingController();
   final name1Controller = TextEditingController();
   final emailController = TextEditingController();
-  final passController = TextEditingController();
+
   @override
   void dispose() {
     // TODO: implement dispose
     nameController.dispose();
     emailController.dispose();
     name1Controller.dispose();
-    passController.dispose();
+
     super.dispose();
   }
   clearText(){
     nameController.clear();
     emailController.clear();
     name1Controller.clear();
-    passController.clear();
+
   }
   //Add Students
   CollectionReference students= FirebaseFirestore.instance.collection('students');
   Future<void> addUser(){
     return students.add({
-      'name': name, 'name1' : rollno, 'password' : password
+      'name': name, 'name1' : rollno,
     }).then((value) => print("User Add")).catchError((error){
       print('Failed to add user: $error');
     });
@@ -77,6 +77,7 @@ class _AddStudentPage3State extends State<AddStudentPage3> {
                   },
                 ),
               ),
+              SizedBox(height: 10,),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10.0),
                 child: TextFormField(
@@ -96,27 +97,7 @@ class _AddStudentPage3State extends State<AddStudentPage3> {
                   },
                 ),
               ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-
-                    labelStyle: TextStyle(fontSize: 20),
-                    border: OutlineInputBorder(),
-                    errorStyle: TextStyle(color: Colors.red,fontSize: 14),
-                  ),
-                  controller: passController,
-                  validator: (value){
-                    if(value == null || value.isEmpty){
-                      return 'Please Enter password';
-                    }
-                    return null;
-                  },
-                ),
-              ),
+SizedBox(height: 30,),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -127,7 +108,7 @@ class _AddStudentPage3State extends State<AddStudentPage3> {
                           name = nameController.text;
                           email = emailController.text;
                           rollno =name1Controller.text;
-                          password = passController.text;
+
                           addUser();
                           clearText();
                         });
